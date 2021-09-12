@@ -9,7 +9,9 @@ describe('App', () => {
   })
 
   it('The slider component should exist', () => {
-    cy.findByRole('slider').should('exist')
+    cy.findByRole('slider')
+      .should('exist')
+      .should('have.attr', 'aria-valuenow', '5')
   })
 
   it('should change value when being clicked', () => {
@@ -26,7 +28,7 @@ describe('App', () => {
       .trigger('mousemove', 'right')
       .wait(50)
       .trigger('mouseleave')
-    cy.get('[role="slider"]')
+    cy.findByRole('slider')
       .should('have.attr', 'aria-valuenow', '30')
 
     cy.findByText(/列表數/).should('contains.text', '30')

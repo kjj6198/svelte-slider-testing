@@ -8,7 +8,7 @@
     "start": "sirv public --no-clear",
     "test": "jest",
     "e2e:open": "cypress open",
-    "test:e2e": "cypress run --config-file ./cypress.json"
+    "e2e:run": "cypress run --config-file ./cypress.json"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

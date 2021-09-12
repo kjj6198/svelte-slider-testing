@@ -37,20 +37,35 @@
     <span>API 載入中</span>
   {:then data}
     <h3>搜尋結果</h3>
-    {#each data.items as item (item.id)}
-      <div class="search-result">
-        <h3>{item.full_name}</h3>
-        <p>{item.description}</p>
-        <div class="metainfo">
-          <ul>
-            <li>Forks: {item.forks}</li>
-            <li>Issues: {item.open_issues}</li>
-          </ul>
+    <div class="container">
+      {#each data.items as item (item.id)}
+        <div class="search-result">
+          <h3>{item.full_name}</h3>
+          <p>{item.description}</p>
+          <div class="metainfo">
+            <ul>
+              <li>Forks: {item.forks}</li>
+              <li>Issues: {item.open_issues}</li>
+            </ul>
+          </div>
+          <a href={item.html_url} title={item.full_name}>連結</a>
         </div>
-        <a href={item.html_url} title={item.full_name}>連結</a>
-      </div>
-    {/each}
+      {/each}
+    </div>
   {:catch err}
     <p>{err.message}</p>
   {/await}
 {/if}
+
+<style>
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .search-result {
+    flex: 1;
+    flex-basis: 20%;
+  }
+</style>
