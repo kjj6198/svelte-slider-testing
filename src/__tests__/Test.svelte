@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import App from "../App.svelte";
+  import Slider from "../Slider.svelte";
 
   export let onChange;
   export let value;
@@ -11,4 +11,4 @@
   });
 </script>
 
-<App max={100} min={0} step={1} current={value} on:change={onChange} />
+<Slider max={100} min={0} step={1} current={value} on:change={onChange} />
