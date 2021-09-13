@@ -36,6 +36,7 @@ describe('App', () => {
 
   it('should display API result correctly', () => {
     // 使用 intercept 時可使用標籤讓 cypress 等待此 API 完成後再繼續執行
+    cy.intercept('https://api.github.com/search/*').as('githubAPI')
     cy.wait('@githubAPI')
     data.items.forEach((item) => {
       cy.findByText(item.full_name).should('exist')
